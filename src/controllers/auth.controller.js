@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs'
 import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
+import userModel from "../models/user.model.js";
 
 
 
@@ -73,4 +74,20 @@ export const register = async (req, res) => {
             expires: new Date(0)
         })
         return res.sendStatus(200)
+    }
+
+    export const profile = async (req, res) => {
+        const userFound = await User.findById(req.user.id)
+
+        if (!userFound) {
+            return res.status(400).json({ message: "User not found"})        
+        }
+        return res.json({
+            id: userFound.id,
+            username: userFound.username,
+            email: userFound.email,
+            createdAt: userFound.createdAt,
+            updatedAt: userFound.updatedAt
+        })
+
     }
