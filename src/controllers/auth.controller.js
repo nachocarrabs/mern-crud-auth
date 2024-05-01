@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs'
 import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
 import userModel from "../models/user.model.js";
+import { TOKEN_SECRET } from "../config.js";
+
 
 
 
@@ -27,7 +29,7 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save()
         const token = await createAccessToken ({ id: userSaved._id })
 
-        res.cookie("token", token),
+        res.cookie("token", token)
         res.json({
             id: userSaved._id,
             username: userSaved.email,
@@ -96,4 +98,23 @@ export const register = async (req, res) => {
             updatedAt: userFound.updatedAt
         })
 
+    }
+
+    export const verifyToken = (req, res) => {
+        const {token} = req.cookies 
+
+        if (!token) {
+            return res.status(401).json({message: 'No autorizado'})
+        }
+        jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+            const userFound = await User.findById(user.id)
+            if (!userFound) {
+                return res.status(401).json({ message: 'No autorizado'})
+            }
+            return res.json({
+                id: userFound._id,
+                username: userFound.username,
+                email: userFound.email,
+            })
+        })
     }
