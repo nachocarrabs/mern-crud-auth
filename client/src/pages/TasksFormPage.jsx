@@ -12,7 +12,7 @@ function TasksFormPage() {
     })
 
     return (
-        <div className=" bg-zinc-700 max-w-md w-full p-10 rounded-md">
+        <div className=" bg-zinc-800 max-w-md w-full p-10 rounded-md">
             <form onSubmit={onSubmit}>
 
                 <input type="text" placeholder='Title' 
