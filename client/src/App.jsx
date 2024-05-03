@@ -7,6 +7,7 @@ import TasksPage from "./pages/TasksPage";
 import TasksFormPage from "./pages/TasksFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
+import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import { TaskProvider } from "./context/TasksContext";
 
@@ -14,8 +15,8 @@ const App = () => {
   return (
     <AuthProvider>
       <TaskProvider>
-
         <BrowserRouter>
+          <Navbar/>
           <Routes>
             <Route path="/" element={ <HomePage/>} />
             <Route path="/login" element={<LoginPage/>} />
