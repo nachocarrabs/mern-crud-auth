@@ -15,10 +15,7 @@ function TaskCard({ task }) {
                         deleteTask(task._id)
                         }}>Delete
                     </button>
-                    <button>
-                        <Link to={`/tasks/${task._id}`}></Link>
-                        Edit
-                    </button>
+                    <Link to={`/tasks/${task._id}`}>Edit</Link>
                 </div>
             </header>
             <p className="text-slate-300">{task.description}</p>
