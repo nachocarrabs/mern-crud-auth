@@ -16,8 +16,8 @@ function TasksFormPage() {
         const loadTask = async () => {
             if (params.id) {
                 const task = await getTask(params.id)
-                setValue('title', task.title)
-                setValue('description', task.description)
+                setValue("title", task.title)
+                setValue("description", task.description)
             }
         }
         loadTask()

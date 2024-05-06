@@ -41,11 +41,11 @@ export function TaskProvider ( {children} ) {
 
     const updateTask = async (id, task) => {
         try {
-            await updateTaskRequest(id, task)
+            await updateTaskRequest(id, task);
         } catch (error) {
             console.error(error);
         }
-    }
+        };
 
     return (
         <TaskContext.Provider value= {{
@@ -54,7 +54,7 @@ export function TaskProvider ( {children} ) {
             getTasks,
             deleteTask,
             getTask,
-            updateTask
+            updateTask,
         }}>
             {children}
         </TaskContext.Provider>
