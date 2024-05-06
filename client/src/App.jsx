@@ -16,6 +16,7 @@ const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+          <main className=" container mx-auto px-10 ">
           <Navbar/>
           <Routes>
             <Route path="/" element={ <HomePage/>} />
@@ -24,12 +25,12 @@ const App = () => {
 
               <Route element={<ProtectedRoute/>} >
                 <Route path="/tasks" element={ <TasksPage/> } />
-                <Route path="/add-task" element={ <TasksFormPage/> } />
+                <Route path="/add-tasks" element={ <TasksFormPage/> } />
                 <Route path="/tasks/:id" element={ <TasksFormPage/> } />
                 <Route path="/profile" element={ <ProfilePage/> } />
               </Route>
-
           </Routes>
+          </main>
         </BrowserRouter>
       </TaskProvider>
     </AuthProvider>

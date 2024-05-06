@@ -18,13 +18,21 @@ function Navbar() {
                             <h1>
                                 ¡ Welcome {user.username} !
                             </h1>
-                            <li>
-                                <Link to='/add-tasks'>Add Tasks</Link>
+                            <li >
+                                <Link 
+                                    className="font-semibold text-indigo-500 border border-indigo-500 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-indigo-500 hover:text-white  "
+                                    to='/add-tasks'
+                                    >Add Tasks
+                                </Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={() => {
+                                <Link 
+                                    className="font-semibold text-red-500 border border-red-600 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-red-600 hover:text-white  "
+                                    to='/' 
+                                    onClick={() => {
                                     logout()
-                                }}>Logout</Link>
+                                    }}>Logout
+                                </Link>
                             </li>
                         </>
                     ) : (
@@ -33,13 +41,15 @@ function Navbar() {
                                 <Link 
                                     to='/login'
                                     className="font-semibold text-orange-400 border border-orange-500 text-orange-500 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-orange-500 hover:text-white  "
-                                >Login</Link>
+                                    >Login
+                                </Link>
                             </li>
                             <li>
                                 <Link 
                                     to='/register'
                                     className="font-semibold text-orange-400 border border-orange-500 text-orange-500 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-orange-500 hover:text-white  "
-                                >Register</Link>
+                                    >Register
+                                </Link>
                             </li>
                         </>
                     )}
