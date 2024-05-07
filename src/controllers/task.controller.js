@@ -29,15 +29,13 @@ export const createTask = async (req, res) => {
 
 export const getTask = async (req, res) => {
     try {
-        const task = await Task.findById(req.params.id).populate('user')
-        if (!task) {
-            return res.status(404).json({message: 'Task not found'})
-            res.json(task)
-        }
+        const task = await Task.findById(req.params.id);
+        if (!task) return res.status(404).json({ message: "Task not found" });
+        return res.json(task);
     } catch (error) {
-        return res.status(404).json({message: 'Task not found'})
+        return res.status(500).json({ message: error.message });
     }
-}
+    };
 
 export const deleteTask = async (req, res) => {
     try {

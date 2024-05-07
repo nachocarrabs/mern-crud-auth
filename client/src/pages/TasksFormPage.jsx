@@ -10,30 +10,29 @@ function TasksFormPage() {
     const { register, handleSubmit, setValue } = useForm();
     const { createTask, getTask, updateTask } = useTasks()
     const navigate = useNavigate()
-    const params = useParams()
-
-    
-    
+    const { id } = useParams()
     
     const onSubmit = handleSubmit((data) => {
-        if (params.id) {
-            updateTask(params.id, data)
+        if (id) {
+            updateTask(id, data)
         } else {
             createTask(data)
         }
         navigate('/tasks')
     })
-    
+
     useEffect(() => {
         const loadTask = async () => {
-            if (params.id) {
-            const task = await getTask(params.id);
+            console.log(id);
+            if (id) {
+            const task = await getTask(id);
             setValue("title", task.title);
             setValue("description", task.description);
-            }
+            } 
         };
         loadTask();
-        }, []);
+        }, [id, getTask, setValue]);
+
     
     return (
         <div className=" bg-zinc-800 max-w-md w-full p-10 rounded-md">
