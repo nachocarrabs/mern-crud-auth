@@ -20,7 +20,7 @@ const RegisterPage = () => {
     
     return (
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md ">
+            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
 
 
             {
@@ -58,7 +58,7 @@ const RegisterPage = () => {
                 {
                     errors.password && <p className="text-red-500">Password is required</p>
                 }
-                <button className="font-semibold text-orange-400 border border-orange-500 text-orange-500 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-orange-500 hover:text-white  ">
+                <button className="font-semibold text-sky-400 border border-sky-500 text-sky-500 rounded-md py-2 px-4 transition duration-100 ease-in-out hover:bg-sky-500 hover:text-white  ">
                     Register
                 </button>
             </form>
