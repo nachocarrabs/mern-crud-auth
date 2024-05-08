@@ -3,6 +3,8 @@ import { useTasks } from "./useTasks";
 import { Link } from 'react-router-dom'
 import utc from "dayjs/plugin/utc"
 import dayjs from 'dayjs';
+dayjs.extend(utc);
+
 
 function TaskCard({ task }) {
 
