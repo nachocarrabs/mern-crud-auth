@@ -8,15 +8,16 @@ function Navbar() {
 
     return (
         <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
-            <h1 className="text-2xl font-bold">
-                <Link to={isAuthenticated ? "/tasks" : "/"}> TaskManager</Link> 
-            </h1>
+            <Link to={isAuthenticated ? "/tasks" : "/"} className="flex items-center text-2xl ">
+                <h1 className="text-2xl font-bold mx-2" > TaskManager |</h1> 
+                <h1 className=" font-light text-base pt-1">Trello Clone</h1> 
+            </Link> 
             <ul className="flex gap-x-2">
                 
                 {isAuthenticated ? (
                         <>
-                            <h1>
-                                ¡ Welcome {user.username} !
+                            <h1 className="content flex ">
+                                ¡ Welcome <h1 className=" text-red-600 ">{user.username}</h1> !
                             </h1>
                             <li >
                                 <Link 
