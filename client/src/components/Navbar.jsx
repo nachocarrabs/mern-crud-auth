@@ -7,9 +7,9 @@ function Navbar() {
     const { isAuthenticated, logout, user } = useAuth()
 
     return (
-        <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
+        <nav className="bg-[#1d2125] w-100 h-20 p-6 border-b bordered-box border-b-[#9fadbc29] flex flex-row justify-between">
             <Link to={isAuthenticated ? "/tasks" : "/"} className="flex items-center text-2xl ">
-                <h1 className="text-2xl font-bold mx-2" > TaskManager |</h1> 
+                <h1 className=" font-semibold mx-2" > TaskManager |</h1> 
                 <h1 className=" font-light text-base pt-1">Trello Clone</h1> 
             </Link> 
             <ul className="flex gap-x-2">
@@ -17,7 +17,7 @@ function Navbar() {
                 {isAuthenticated ? (
                         <>
                             <h1 className="content flex ">
-                                ¡ Welcome <h1 className=" text-red-600 ">{user.username}</h1> !
+                                ¡ Welcome <h1 className=" text-red-600 px-2">{user.username}</h1> !
                             </h1>
                             <li >
                                 <Link 

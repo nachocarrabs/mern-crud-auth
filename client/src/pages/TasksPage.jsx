@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTasks } from "../components/useTasks";
 import TaskCard from "../components/TaskCard";
+import Sidebar from "../components/Sidebar";
 
 function TasksPage() {
     const { getTasks, tasks } = useTasks()
@@ -14,11 +15,11 @@ function TasksPage() {
     }
 
     return (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 ">
-            {tasks.map((task) => (
-                    <TaskCard task={task} key={task._id} />
-                ))}
-        </div>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 ">
+                {tasks.map((task) => (
+                        <TaskCard task={task} key={task._id} />
+                    ))}
+            </div>
     )
 }
 

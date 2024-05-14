@@ -8,6 +8,8 @@ import TasksFormPage from "./pages/TasksFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Main from "./components/Main";
 import { AuthProvider } from "./context/AuthContext";
 import { TaskProvider } from "./context/TasksContext";
 
@@ -16,21 +18,24 @@ const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          <main className=" "> {/* className= "container mx-auto px-10" */}
+          {/* className= "container mx-auto px-10" */}
           <Navbar/>
-          <Routes>
-            <Route path="/" element={ <HomePage/>} />
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path="/register" element={<RegisterPage/>} />
+          <div className="content flex">
+            <Sidebar/>
+            <Routes>
+              <Route path="/login" element={<LoginPage/>} />
+              <Route path="/register" element={<RegisterPage/>} />
 
-              <Route element={<ProtectedRoute/>} >
-                <Route path="/tasks" element={ <TasksPage/> } />
-                <Route path="/add-tasks" element={ <TasksFormPage/> } />
-                <Route path="/tasks/:id" element={ <TasksFormPage/> } />
-                <Route path="/profile" element={ <ProfilePage/> } />
-              </Route>
-          </Routes>
-          </main>
+                <Route element={<ProtectedRoute/>} >
+                  <Route path="/" element={ <HomePage/>} />
+                  <Route path="/tasks" element={ <TasksPage/> } />
+                  <Route path="/add-tasks" element={ <TasksFormPage/> } />
+                  <Route path="/tasks/:id" element={ <TasksFormPage/> } />
+                  <Route path="/profile" element={ <ProfilePage/> } />
+                </Route>
+            </Routes>
+            <Main/>
+          </div>
         </BrowserRouter>
       </TaskProvider>
     </AuthProvider>
