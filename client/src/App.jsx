@@ -8,8 +8,6 @@ import TasksFormPage from "./pages/TasksFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
 import { AuthProvider } from "./context/AuthContext";
 import { TaskProvider } from "./context/TasksContext";
 
@@ -18,14 +16,12 @@ const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          {/* className= "container mx-auto px-10" */}
-          <Navbar/>
-          <div className="content flex">
-            <Sidebar/>
+          <Navbar/> 
+          {/*<Sidebar/>*/}
+          <div className="content flex w-full justify-center align-center">
             <Routes>
               <Route path="/login" element={<LoginPage/>} />
               <Route path="/register" element={<RegisterPage/>} />
-
                 <Route element={<ProtectedRoute/>} >
                   <Route path="/" element={ <HomePage/>} />
                   <Route path="/tasks" element={ <TasksPage/> } />
@@ -34,7 +30,7 @@ const App = () => {
                   <Route path="/profile" element={ <ProfilePage/> } />
                 </Route>
             </Routes>
-            <Main/>
+            
           </div>
         </BrowserRouter>
       </TaskProvider>
