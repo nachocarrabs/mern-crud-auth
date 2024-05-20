@@ -19,7 +19,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <div className="content flex w-full justify-center align-center">
-            <Sidebar />
+            {/* <Sidebar /> */}
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
